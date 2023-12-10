@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
+  '@babylonjs/core':
+    specifier: ^6.33.1
+    version: 6.33.1
   sass:
     specifier: ^1.69.5
     version: 1.69.5
@@ -16,6 +19,10 @@ devDependencies:
     version: 5.0.7(sass@1.69.5)
 
 packages:
+
+  /@babylonjs/core@6.33.1:
+    resolution: {integrity: sha512-gdi7Ct5kElT3vC2UTg8VHhp09YR7FHVm7j9E5+NlO9ygGXreFvxjgShlCqSVz9SsRJEDOopejJoU7a0vsJbiFg==}
+    dev: true
 
   /@esbuild/android-arm64@0.19.9:
     resolution: {integrity: sha512-q4cR+6ZD0938R19MyEW3jEsMzbb/1rulLXiNAJQADD/XYp7pT+rOS5JGxvpRW8dFDEfjW4wLgC/3FXIw4zYglQ==}
