@@ -1,7 +1,15 @@
 import "./style.scss";
-import { Engine, MeshBuilder, Scene, Vector3 } from "@babylonjs/core";
+import {
+  ArcRotateCamera,
+  Engine,
+  GaussianSplatting,
+  Scene,
+  Vector3,
+} from "@babylonjs/core";
 
-const main = () => {
+import splatPath from "../assets/model.splat?url";
+
+const main = async () => {
   const renderCanvas = document.getElementById(
     "renderCanvas"
   ) as HTMLCanvasElement | null;
@@ -12,11 +20,18 @@ const main = () => {
   const engine = new Engine(renderCanvas, true);
   const scene = new Scene(engine);
 
-  scene.createDefaultCameraOrLight(true, true, true);
-  scene.createDefaultEnvironment();
+  const camera = new ArcRotateCamera(
+    "camera",
+    Math.PI / 2,
+    Math.PI / 2,
+    3.0,
+    Vector3.Zero(),
+    scene,
+    true
+  );
+  camera.attachControl();
 
-  const box = MeshBuilder.CreateBox("box", { size: 0.1 });
-  box.position = new Vector3(0, 0.05, 0);
+  new GaussianSplatting("splatting", scene).loadFileAsync(splatPath);
 
   window.addEventListener("resize", () => engine.resize());
   engine.runRenderLoop(() => scene.render());
