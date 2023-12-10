@@ -6,10 +6,10 @@ settings:
 
 devDependencies:
   typescript:
-    specifier: ^5.2.2
+    specifier: ^5.3.3
     version: 5.3.3
   vite:
-    specifier: ^5.0.0
+    specifier: ^5.0.7
     version: 5.0.7
 
 packages:
